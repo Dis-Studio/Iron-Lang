@@ -5,6 +5,7 @@
 libs:
 	@echo "Installing the right libraries..."
 	@sudo npm i pkg -g
+	@sudo pacman -S nasm gcc
 build:
 	@echo "Compilation..."
 	@pkg src/index.js
