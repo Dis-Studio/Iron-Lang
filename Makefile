@@ -15,7 +15,7 @@ build:
 	
 run:
 	@echo "Compiling the test code..."
-	@./Iron-Lang-linux examples/test.in
+	@./build/Iron-Lang-linux examples/test.in
 	@echo "Running the test code..."
 	./examples/test
 
