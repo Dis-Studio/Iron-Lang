@@ -14,7 +14,7 @@ build:
 	@mv index-win.exe build/Iron-Lang-win.exe
 	
 run:
-	@echo "Compiling the test code...\x1b[0m"
+	@echo "Compiling the test code..."
 	@./Iron-Lang-linux examples/test.in
 	@echo "Running the test code..."
 	./examples/test
