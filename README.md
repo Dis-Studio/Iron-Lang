@@ -29,7 +29,7 @@ make build
 
 Чтоб запустить код через уже скомпилированный интерпретатор, пропишите:
 ```sh
-./Iron-Lang <path/to/file.in>
+./build/Iron-Lang-linux <path/to/file.in>
 ```
 
 # Документация
