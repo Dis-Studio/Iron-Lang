@@ -1,0 +1,29 @@
+func sys_call(eax:int, ebx:int, ecx:id, edx:id)
+    asm("mov eax, ", eax)
+    asm("mov ebx, ", ebx)
+    asm("mov ecx, ", ecx)
+    asm("mov edx, ", edx)
+    asm("int 80h")
+end
+
+func exit(code:int)
+    asm("mov eax, 1")
+    asm("mov ebx, ", code)
+    asm("int 80h")
+end
+func print(msg:string)
+    asm("jmp %%astr")
+    asm("%%str db ", msg)
+    asm("%%strln equ $-%%str")
+    asm("%%astr: sys_call 4, 1, %%str, %%strln")
+end
+func putchar(indx:int)
+    asm("jmp %%astr")
+    asm("%%str db ", indx)
+    asm("%%strln equ $-%%str")
+    asm("%%astr: sys_call 4, 1, %%str, %%strln")
+end
+func println(msg:string)
+    print(msg)
+    putchar(10)
+end

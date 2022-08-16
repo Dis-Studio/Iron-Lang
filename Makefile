@@ -1,11 +1,11 @@
 .DEFAULT_GOAL := all
 
-.PHONY: libs build run all
+.PHONY: libs build install run all
 
 libs:
 	@echo "Installing the right libraries..."
 	@sudo npm i pkg -g
-	@sudo pacman -S nasm gcc
+	@sudo pacman -S nasm gcc binutils node
 build:
 	@echo "Compilation..."
 	@pkg src/index.js
@@ -13,11 +13,16 @@ build:
 	@mv index-linux build/Iron-Lang-linux
 	@mv index-macos build/Iron-Lang-macos
 	@mv index-win.exe build/Iron-Lang-win.exe
+install: build
+	@echo Installing...
+	@sudo cp build/Iron-Lang-linux /bin/ironlang
+	@sudo cp build/Iron-Lang-linux /usr/bin/ironlang
 	
 run:
 	@echo "Compiling the test code..."
-	@./build/Iron-Lang-linux examples/test.in
+	@node src/index.js examples/test.in
 	@echo "Running the test code..."
-	./examples/test
+	@echo
+	@./examples/test
 
 all: build run

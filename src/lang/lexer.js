@@ -1,7 +1,6 @@
-const { run } = require("./runner");
+const { run } = require("./core");
 
 function lexer(chars){
-    //console.log(chars);
     let str = "";
     let strskip = false;
     var out = [];
@@ -31,7 +30,7 @@ function lexer(chars){
 
     chars.forEach(function(char){
         switch(char){
-            case '"' || "'":
+            case '"':
                 if(!strskip)
                     add("id")
                 strskip = !strskip;
@@ -41,12 +40,13 @@ function lexer(chars){
                     add("id");
                     if(ids.length === 1)
                         ids.push(["end", "end"]);
-                    out.push(ids);
+                    if(ids.length > 1)
+                        out.push(ids);
                     ids = [];
                 }
                 return;
             default:
-                if(char === " " || char === "(" || char === ")" || char === "{" || char === "}") {
+                if(char === " " || char === "(" || char === ")" || char === "{" || char === "}" || char === ":" || char == ",") {
                     if(!strskip){
                         add("id");
                         if(char !== " ")
