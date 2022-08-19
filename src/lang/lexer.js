@@ -46,7 +46,7 @@ function lexer(chars){
                 }
                 return;
             default:
-                if(char === " " || char === "(" || char === ")" || char === "{" || char === "}" || char === ":" || char == ",") {
+                if(char === " " || char === "(" || char === ")" || char === "{" || char === "}" || char === ":" || char == "," || char == "=" || char == "+" || char == "-" || char == "*" || char == "/") {
                     if(!strskip){
                         add("id");
                         if(char !== " ")

@@ -10,13 +10,14 @@ function existsfunc(funcname){
     });
     return out;
 }
-function addfunc(funcname, args, argstype){
+function addfunc(funcname, args, argstype, returntype){
     if(existsfunc(funcname))
         showerr(`Function('${funcname}') is already defined`, "FuncError");
     funcs.push({
         name:funcname,
         args:args,
-        argstype:argstype
+        argstype:argstype,
+        returntype:returntype
     });
 }
 function gettypearg(funcname, argid){
@@ -41,17 +42,11 @@ function existsarg(funcname, arg){
     });
     return out;
 }
-function getargid(funcname, arg){
+function getreturntype(funcname){
     let out;
     funcs.forEach(function(func){
-        if(func.name == funcname){
-            let id = 1;
-            func["args"].forEach(function(argname){
-                if(argname == arg)
-                    out = id;
-                id++;
-            });
-        }
+        if(func.name == funcname)
+            out = func.returntype;
     });
     return out;
 }
@@ -60,5 +55,5 @@ module.exports = {
     existsfunc,
     gettypearg,
     existsarg,
-    getargid
+    getreturntype
 };
