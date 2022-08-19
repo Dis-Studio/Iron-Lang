@@ -4,7 +4,6 @@
     <img src="https://img.shields.io/github/languages/count/Dis-Studio/Iron-Lang"/>
     <img src="https://img.shields.io/github/languages/top/Dis-Studio/Iron-Lang"/>
     <img src="https://img.shields.io/github/directory-file-count/Dis-Studio/Iron-Lang"/>
-    <img src="https://img.shields.io/github/languages/code-size/HONAK0/Iron-Lang"/>
     <img src="https://img.shields.io/github/issues-raw/HONAK0/Iron-Lang"/>
  </div>
 
