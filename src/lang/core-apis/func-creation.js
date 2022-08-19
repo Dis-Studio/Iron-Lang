@@ -1,6 +1,6 @@
 const memory = require("../memory");
-const { showerr } = require("../io/err");
-const { addfunc, existsfunc, gettypearg, existsarg, getreturntype } = require("../io/func");
+const { showerr } = require("./io/err");
+const { addfunc, existsfunc, gettypearg, existsarg, getreturntype } = require("./io/func");
 
 function funccreate(tokens){
     if(existsfunc(tokens[1][1]))

@@ -1,7 +1,7 @@
 const memory = require("../memory");
-const { showerr } = require("../io/err");
-const { existsfunc, gettypearg, existsarg, getreturntype } = require("../io/func");
-const { existsvar, gettypevar } = require("../io/variable");
+const { showerr } = require("./io/err");
+const { existsfunc, gettypearg, existsarg, getreturntype } = require("./io/func");
+const { existsvar, gettypevar } = require("./io/variable");
 
 function replace_all(str, oldstr, newstr){
     let out = str;

@@ -5,7 +5,7 @@
 libs:
 	@echo "Installing the right libraries..."
 	@sudo npm i pkg -g
-	@sudo pacman -S nasm gcc binutils nodejs
+	@sudo pacman -S gcc nodejs
 build:
 	@echo "Compilation..."
 	@pkg src/index.js
@@ -20,9 +20,7 @@ install: build
 	
 run:
 	@echo "Compiling the test code..."
-	@node src/index.js examples/test.in
+	@node src/index.js -f examples/test.in -o test
 	@echo "Running the test code..."
 	@echo
-	@./examples/test
-
-all: build run
+	@./test

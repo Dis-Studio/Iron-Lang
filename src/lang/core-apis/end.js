@@ -1,4 +1,4 @@
-const { showerr } = require("../io/err");
+const { showerr } = require("./io/err");
 const memory = require("../memory");
 
 function end(tokens){

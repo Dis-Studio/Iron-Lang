@@ -1,6 +1,6 @@
 const { readFileSync, writeFileSync, unlinkSync, existsSync } = require("fs");
 const { lexer } = require("./lang/lexer");
-const { showerr } = require("./lang/io/err");
+const { showerr } = require("./lang/core-apis/io/err");
 const { exec } = require("child_process");
 const memory = require("./lang/memory");
 
