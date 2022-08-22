@@ -18,10 +18,12 @@ function lexer(chars){
                 type = "assign";
                 break;
             default:
-                if(!isNaN(Number(str)))
-                    type = "int"
-                else if(str.startsWith('"') || str.endsWith('"'))
+                if(str.startsWith('"') || str.endsWith('"'))
                     type = "string";
+                else if(str.startsWith("0x"))
+                    type = "uint_t";
+                else if(!isNaN(Number(str)))
+                    type = "int"
                 break;
         }
         ids.push([type, str]);

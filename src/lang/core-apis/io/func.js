@@ -1,6 +1,25 @@
 const { showerr } = require("./err.js");
 
-var funcs = [];
+var funcs = [
+    {
+        name:"stringLength",
+        args:["str"],
+        argstype:["string"],
+        returntype:"int"
+    },
+    {
+        name:"outb",
+        args:["port", "data"],
+        argstype:["uint_t", "uint_t"],
+        returntype:"func"
+    },
+    {
+        name:"inb",
+        args:["port"],
+        argstype:["uint_t"],
+        returntype:"uint_t"
+    }
+];
 
 function existsfunc(funcname){
     let out = false;
@@ -50,10 +69,19 @@ function getreturntype(funcname){
     });
     return out;
 }
+function getmaxargs(funcname){
+    let out;
+    funcs.forEach(function(func){
+        if(func.name == funcname)
+            out = func.args.length;
+    });
+    return out;
+}
 module.exports = {
     addfunc,
     existsfunc,
     gettypearg,
     existsarg,
-    getreturntype
+    getreturntype,
+    getmaxargs
 };

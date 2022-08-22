@@ -25,7 +25,7 @@ function run(tokenlist){
             showerr(`Function('${tokens[0][1]}') is not defined`, "ObjectNotFound");
     });
     if(!existsfunc("main"))
-        showerr("Starting function not specified", "");
+        showerr("Starting function not specified", "ObjectError");
 }
 module.exports = {
     run

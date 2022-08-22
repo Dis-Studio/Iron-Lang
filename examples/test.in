@@ -1,5 +1,5 @@
-int multiply(num1:int, num2:int) = num1 * num2
+string test() = "hello!!!"
 
 func main()
-    println("5 * 5 = ", multiply(5, 5))
+    var msg = test()
 end

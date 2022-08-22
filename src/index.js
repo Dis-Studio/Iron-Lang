@@ -18,6 +18,8 @@ for(let i=2; i < process.argv.length; i++){
         memory.filepath = process.argv[++i];
     else if(process.argv[i] == "-o")
         memory.outputcode = process.argv[++i];
+    else if(process.argv[i] == "--not-import-libs")
+        memory.code[0] = "";
 }
 if(!existsSync(memory.filepath))
     showerr("File not found", "FileReadError");
@@ -35,11 +37,11 @@ content.push('\n');
 
 lexer(content);
 
-writeFileSync(memory.filepath.replace(".in", ".c"), memory.code.join(""), "utf8");
-exec(`gcc ${memory.filepath.replace(".in", ".c")} -o ${memory.outputcode}`, function(err, stdout, stderr){
+writeFileSync(memory.filepath.replace(".in", ".c"), memory.code.join("\n"), "utf8");
+exec(`gcc ${memory.filepath.replace(".in", ".c")} libs/*.c -I libs/ -o ${memory.outputcode}`, function(err, stdout, stderr){
     if(stdout)
         console.log(stdout);
     if(stderr)
         console.log(stderr);
-    unlinkSync(memory.filepath.replace(".in", ".c"));
+    //unlinkSync(memory.filepath.replace(".in", ".c"));
 });
